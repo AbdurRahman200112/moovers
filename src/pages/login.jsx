@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import PhoneInput from "react-phone-input-2";
+import ReactPhoneInput from "react-phone-input-2";
 import "react-phone-input-2/lib/style.css"; // import styles
 
 const Login = () => {
@@ -22,7 +22,7 @@ const Login = () => {
         <div className="p-8 w-96 mx-auto">
           <h2 className="text-2xl font-bold mb-4">Enter your mobile number</h2>
           <form onSubmit={handleSubmit} className="space-y-4">
-            <PhoneInput
+            <ReactPhoneInput
               country="ng" // default country
               value={phoneNumber}
               onChange={handlePhoneNumberChange}
