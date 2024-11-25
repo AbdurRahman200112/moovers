@@ -1,11 +1,11 @@
 import React, { useState } from "react";
-import IntlTelInput from "react-intl-tel-input";
-import "react-intl-tel-input/dist/main.css";
+import PhoneInput from "react-phone-input-2";
+import "react-phone-input-2/lib/style.css"; // import styles
 
 const Login = () => {
   const [phoneNumber, setPhoneNumber] = useState("");
 
-  const handlePhoneNumberChange = (isValid, value, countryData) => {
+  const handlePhoneNumberChange = (value) => {
     setPhoneNumber(value);
   };
 
@@ -22,13 +22,12 @@ const Login = () => {
         <div className="p-8 w-96 mx-auto">
           <h2 className="text-2xl font-bold mb-4">Enter your mobile number</h2>
           <form onSubmit={handleSubmit} className="space-y-4">
-            <IntlTelInput
-              preferredCountries={["ng", "us", "gb"]}
-              defaultCountry={"ng"}
-              containerClassName="intl-tel-input w-full"
-              inputClassName="w-full border-2 border-gray-200 rounded-full p-2 focus:outline-none"
-              fieldId="phoneNumber"
-              onPhoneNumberChange={handlePhoneNumberChange}
+            <PhoneInput
+              country="ng" // default country
+              value={phoneNumber}
+              onChange={handlePhoneNumberChange}
+              inputClass="w-full border-2 border-gray-200 rounded-full p-2 focus:outline-none"
+              buttonClass="bg-white border-gray-200 rounded-l-full"
             />
             <button
               type="submit"
